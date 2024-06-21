@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "@stainless-temp/josephsofaer/*": ["dist/src/*"],
-      "@stainless-temp/josephsofaer": ["dist/src/index.ts"],
+      "josephsofaer/*": ["dist/src/*"],
+      "josephsofaer": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,

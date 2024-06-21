@@ -2,12 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const { parse } = require('@typescript-eslint/parser');
 
-const pkgImportPath = process.env['PKG_IMPORT_PATH'] ?? '@stainless-temp/josephsofaer/'
+const pkgImportPath = process.env['PKG_IMPORT_PATH'] ?? 'josephsofaer/';
 
 const distDir =
   process.env['DIST_PATH'] ?
     path.resolve(process.env['DIST_PATH'])
-  : path.resolve(__dirname, '..', 'dist');
+  : path.resolve(__dirname, '..', '..', 'dist');
 const distSrcDir = path.join(distDir, 'src');
 
 /**
@@ -103,7 +103,7 @@ async function* walk(dir) {
 }
 
 async function postprocess() {
-  for await (const file of walk(path.resolve(__dirname, '..', 'dist'))) {
+  for await (const file of walk(path.resolve(__dirname, '..', '..', 'dist'))) {
     if (!/\.([cm]?js|(\.d)?[cm]?ts)$/.test(file)) continue;
 
     const code = await fs.promises.readFile(file, 'utf8');
@@ -142,7 +142,7 @@ async function postprocess() {
 
     if (file.endsWith('.d.ts')) {
       // work around bad tsc behavior
-      // if we have `import { type Readable } from '@stainless-temp/josephsofaer/_shims/index'`,
+      // if we have `import { type Readable } from 'josephsofaer/_shims/index'`,
       // tsc sometimes replaces `Readable` with `import("stream").Readable` inline
       // in the output .d.ts
       transformed = transformed.replace(/import\("stream"\).Readable/g, 'Readable');

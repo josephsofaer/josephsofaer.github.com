@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@stainless-temp/josephsofaer/resource';
-import * as Last90API from '@stainless-temp/josephsofaer/resources/stats/last-90';
-import * as ProviderLast90API from '@stainless-temp/josephsofaer/resources/stats/provider-last-90';
-import * as ProvidersAPI from '@stainless-temp/josephsofaer/resources/stats/providers';
-import * as ProvidersOverviewLast90API from '@stainless-temp/josephsofaer/resources/stats/providers-overview-last-90';
+import { APIResource } from '../../resource';
+import * as Last90API from './last-90';
+import * as ProviderLast90API from './provider-last-90';
+import * as ProvidersAPI from './providers';
+import * as ProvidersOverviewLast90API from './providers-overview-last-90';
 
 export class Stats extends APIResource {
   last90: Last90API.Last90 = new Last90API.Last90(this._client);

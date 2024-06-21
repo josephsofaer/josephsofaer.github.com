@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@stainless-temp/josephsofaer/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "@stainless-temp/josephsofaer/*": ["src/*"],
-      "@stainless-temp/josephsofaer": ["src/index.ts"],
+      "josephsofaer/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "josephsofaer/*": ["src/*"],
+      "josephsofaer": ["src/index.ts"],
     },
     "noEmit": true,
 

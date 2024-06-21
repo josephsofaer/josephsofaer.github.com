@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@stainless-temp/josephsofaer/core';
-import { APIResource } from '@stainless-temp/josephsofaer/resource';
-import * as LoginWithPasswordAPI from '@stainless-temp/josephsofaer/resources/auth/login-with-password';
+import * as Core from '../../core';
+import { APIResource } from '../../resource';
+import * as LoginWithPasswordAPI from './login-with-password';
 
 export class LoginWithPassword extends APIResource {
   /**

@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@stainless-temp/josephsofaer/core';
-import { APIResource } from '@stainless-temp/josephsofaer/resource';
-import * as ProviderLast90API from '@stainless-temp/josephsofaer/resources/stats/provider-last-90';
+import * as Core from '../../core';
+import { APIResource } from '../../resource';
+import * as ProviderLast90API from './provider-last-90';
 
 export class ProviderLast90 extends APIResource {
   /**

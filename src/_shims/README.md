@@ -1,9 +1,9 @@
 # 👋 Wondering what everything in here does?
 
-`@stainless-temp/josephsofaer` supports a wide variety of runtime environments like Node.js, Deno, Bun, browsers, and various
+`josephsofaer` supports a wide variety of runtime environments like Node.js, Deno, Bun, browsers, and various
 edge runtimes, as well as both CommonJS (CJS) and EcmaScript Modules (ESM).
 
-To do this, `@stainless-temp/josephsofaer` provides shims for either using `node-fetch` when in Node (because `fetch` is still experimental there) or the global `fetch` API built into the environment when not in Node.
+To do this, `josephsofaer` provides shims for either using `node-fetch` when in Node (because `fetch` is still experimental there) or the global `fetch` API built into the environment when not in Node.
 
 It uses [conditional exports](https://nodejs.org/api/packages.html#conditional-exports) to
 automatically select the correct shims for each environment. However, conditional exports are a fairly new
@@ -15,32 +15,32 @@ getting the wrong raw `Response` type from `.asResponse()`, for example.
 
 The user can work around these issues by manually importing one of:
 
-- `import '@stainless-temp/josephsofaer/shims/node'`
-- `import '@stainless-temp/josephsofaer/shims/web'`
+- `import 'josephsofaer/shims/node'`
+- `import 'josephsofaer/shims/web'`
 
 All of the code here in `_shims` handles selecting the automatic default shims or manual overrides.
 
 ### How it works - Runtime
 
-Runtime shims get installed by calling `setShims` exported by `@stainless-temp/josephsofaer/_shims/registry`.
+Runtime shims get installed by calling `setShims` exported by `josephsofaer/_shims/registry`.
 
-Manually importing `@stainless-temp/josephsofaer/shims/node` or `@stainless-temp/josephsofaer/shims/web`, calls `setShims` with the respective runtime shims.
+Manually importing `josephsofaer/shims/node` or `josephsofaer/shims/web`, calls `setShims` with the respective runtime shims.
 
-All client code imports shims from `@stainless-temp/josephsofaer/_shims/index`, which:
+All client code imports shims from `josephsofaer/_shims/index`, which:
 
 - checks if shims have been set manually
-- if not, calls `setShims` with the shims from `@stainless-temp/josephsofaer/_shims/auto/runtime`
-- re-exports the installed shims from `@stainless-temp/josephsofaer/_shims/registry`.
+- if not, calls `setShims` with the shims from `josephsofaer/_shims/auto/runtime`
+- re-exports the installed shims from `josephsofaer/_shims/registry`.
 
-`@stainless-temp/josephsofaer/_shims/auto/runtime` exports web runtime shims.
-If the `node` export condition is set, the export map replaces it with `@stainless-temp/josephsofaer/_shims/auto/runtime-node`.
+`josephsofaer/_shims/auto/runtime` exports web runtime shims.
+If the `node` export condition is set, the export map replaces it with `josephsofaer/_shims/auto/runtime-node`.
 
 ### How it works - Type time
 
-All client code imports shim types from `@stainless-temp/josephsofaer/_shims/index`, which selects the manual types from `@stainless-temp/josephsofaer/_shims/manual-types` if they have been declared, otherwise it exports the auto types from `@stainless-temp/josephsofaer/_shims/auto/types`.
+All client code imports shim types from `josephsofaer/_shims/index`, which selects the manual types from `josephsofaer/_shims/manual-types` if they have been declared, otherwise it exports the auto types from `josephsofaer/_shims/auto/types`.
 
-`@stainless-temp/josephsofaer/_shims/manual-types` exports an empty namespace.
-Manually importing `@stainless-temp/josephsofaer/shims/node` or `@stainless-temp/josephsofaer/shims/web` merges declarations into this empty namespace, so they get picked up by `@stainless-temp/josephsofaer/_shims/index`.
+`josephsofaer/_shims/manual-types` exports an empty namespace.
+Manually importing `josephsofaer/shims/node` or `josephsofaer/shims/web` merges declarations into this empty namespace, so they get picked up by `josephsofaer/_shims/index`.
 
-`@stainless-temp/josephsofaer/_shims/auto/types` exports web type definitions.
-If the `node` export condition is set, the export map replaces it with `@stainless-temp/josephsofaer/_shims/auto/types-node`, though TS only picks this up if `"moduleResolution": "nodenext"` or `"moduleResolution": "bundler"`.
+`josephsofaer/_shims/auto/types` exports web type definitions.
+If the `node` export condition is set, the export map replaces it with `josephsofaer/_shims/auto/types-node`, though TS only picks this up if `"moduleResolution": "nodenext"` or `"moduleResolution": "bundler"`.

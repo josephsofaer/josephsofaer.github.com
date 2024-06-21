@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import '@stainless-temp/josephsofaer/shims/node'
- *   import '@stainless-temp/josephsofaer/shims/web'
+ *   import 'josephsofaer/shims/node'
+ *   import 'josephsofaer/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */
