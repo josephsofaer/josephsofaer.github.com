@@ -1,4 +1,4 @@
-import { VERSION } from './version';
+// import { VERSION } from './version';
 import {
   JosephsofaerError,
   APIError,
