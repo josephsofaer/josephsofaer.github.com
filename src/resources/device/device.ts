@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@stainless-temp/josephsofaer/core';
-import { APIResource } from '@stainless-temp/josephsofaer/resource';
-import * as DeviceAPI from '@stainless-temp/josephsofaer/resources/device/device';
-import * as DevicesAPI from '@stainless-temp/josephsofaer/resources/devices';
-import * as AssociationsAPI from '@stainless-temp/josephsofaer/resources/device/associations';
+import * as Core from '../../core';
+import { APIResource } from '../../resource';
+import * as DeviceAPI from './device';
+import * as DevicesAPI from '../devices';
+import * as AssociationsAPI from './associations';
 
 export class Device extends APIResource {
   associations: AssociationsAPI.Associations = new AssociationsAPI.Associations(this._client);

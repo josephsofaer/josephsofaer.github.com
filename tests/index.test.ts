@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Josephsofaer from '@stainless-temp/josephsofaer';
-import { APIUserAbortError } from '@stainless-temp/josephsofaer';
-import { Headers } from '@stainless-temp/josephsofaer/core';
+import Josephsofaer from 'josephsofaer';
+import { APIUserAbortError } from 'josephsofaer';
+import { Headers } from 'josephsofaer/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

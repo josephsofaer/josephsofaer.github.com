@@ -1,14 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@stainless-temp/josephsofaer/core';
-import { APIResource } from '@stainless-temp/josephsofaer/resource';
-import * as AuthAPI from '@stainless-temp/josephsofaer/resources/auth/auth';
-import * as LoginAPI from '@stainless-temp/josephsofaer/resources/auth/login';
-import * as LoginWithPasswordAPI from '@stainless-temp/josephsofaer/resources/auth/login-with-password';
-import * as PasswordResetAPI from '@stainless-temp/josephsofaer/resources/auth/password-reset';
-import * as PasswordSetAPI from '@stainless-temp/josephsofaer/resources/auth/password-set';
-import * as VerifyAPI from '@stainless-temp/josephsofaer/resources/auth/verify';
-import * as VerifySendAPI from '@stainless-temp/josephsofaer/resources/auth/verify-send';
+import * as Core from '../../core';
+import { APIResource } from '../../resource';
+import * as AuthAPI from './auth';
+import * as LoginAPI from './login';
+import * as LoginWithPasswordAPI from './login-with-password';
+import * as PasswordResetAPI from './password-reset';
+import * as PasswordSetAPI from './password-set';
+import * as VerifyAPI from './verify';
+import * as VerifySendAPI from './verify-send';
 
 export class Auth extends APIResource {
   login: LoginAPI.Login = new LoginAPI.Login(this._client);

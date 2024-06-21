@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from '@stainless-temp/josephsofaer/core';
-import { Blob } from '@stainless-temp/josephsofaer/_shims/index';
-import { toFile } from '@stainless-temp/josephsofaer';
+import { multipartFormRequestOptions, createForm } from 'josephsofaer/core';
+import { Blob } from 'josephsofaer/_shims/index';
+import { toFile } from 'josephsofaer';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

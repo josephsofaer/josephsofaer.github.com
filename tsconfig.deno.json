@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "@stainless-temp/josephsofaer/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "@stainless-temp/josephsofaer/*": ["deno/*"],
-      "@stainless-temp/josephsofaer": ["deno/index.ts"],
+      "josephsofaer/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "josephsofaer/*": ["deno/*"],
+      "josephsofaer": ["deno/index.ts"],
     },
     "noEmit": true,
     "declaration": true,

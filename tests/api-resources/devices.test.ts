@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Josephsofaer from '@stainless-temp/josephsofaer';
+import Josephsofaer from 'josephsofaer';
 import { Response } from 'node-fetch';
 
 const josephsofaer = new Josephsofaer({

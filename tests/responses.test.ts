@@ -1,5 +1,5 @@
-import { createResponseHeaders } from '@stainless-temp/josephsofaer/core';
-import { Headers } from '@stainless-temp/josephsofaer/_shims/index';
+import { createResponseHeaders } from 'josephsofaer/core';
+import { Headers } from 'josephsofaer/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters
