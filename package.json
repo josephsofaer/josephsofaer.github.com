@@ -1,12 +1,12 @@
 {
   "name": "josephsofaer",
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "The official TypeScript library for the Josephsofaer API",
   "author": "Josephsofaer <support@bringyour.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:undefined/josephsofaer.github.com",
+  "repository": "github:josephsofaer/josephsofaer.github.com",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
