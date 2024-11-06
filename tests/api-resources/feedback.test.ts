@@ -3,14 +3,14 @@
 import Josephsofaer from 'josephsofaer';
 import { Response } from 'node-fetch';
 
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource feedback', () => {
   test('sendFeedback', async () => {
-    const responsePromise = josephsofaer.feedback.sendFeedback({});
+    const responsePromise = client.feedback.sendFeedback({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

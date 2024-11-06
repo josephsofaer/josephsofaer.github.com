@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../core';
 import { APIResource } from '../resource';
-import * as SubscriptionAPI from './subscription';
+import * as Core from '../core';
 import * as Shared from './shared';
 
 export class Subscription extends APIResource {
@@ -116,11 +115,13 @@ export interface SubscriptionRedeemBalanceCodeParams {
   secret?: string;
 }
 
-export namespace Subscription {
-  export import CheckBalanceCode = SubscriptionAPI.CheckBalanceCode;
-  export import CreatePaymentID = SubscriptionAPI.CreatePaymentID;
-  export import RedeemBalanceCode = SubscriptionAPI.RedeemBalanceCode;
-  export import SubscriptionCheckBalanceCodeParams = SubscriptionAPI.SubscriptionCheckBalanceCodeParams;
-  export import SubscriptionCreatePaymentIDParams = SubscriptionAPI.SubscriptionCreatePaymentIDParams;
-  export import SubscriptionRedeemBalanceCodeParams = SubscriptionAPI.SubscriptionRedeemBalanceCodeParams;
+export declare namespace Subscription {
+  export {
+    type CheckBalanceCode as CheckBalanceCode,
+    type CreatePaymentID as CreatePaymentID,
+    type RedeemBalanceCode as RedeemBalanceCode,
+    type SubscriptionCheckBalanceCodeParams as SubscriptionCheckBalanceCodeParams,
+    type SubscriptionCreatePaymentIDParams as SubscriptionCreatePaymentIDParams,
+    type SubscriptionRedeemBalanceCodeParams as SubscriptionRedeemBalanceCodeParams,
+  };
 }

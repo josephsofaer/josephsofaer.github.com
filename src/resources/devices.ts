@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../core';
 import { APIResource } from '../resource';
-import * as DevicesAPI from './devices';
+import * as Core from '../core';
 import { type Response } from '../_shims/index';
 
 export class Devices extends APIResource {
@@ -252,20 +251,22 @@ export interface DeviceShareStatusParams {
   share_code?: string;
 }
 
-export namespace Devices {
-  export import AddDevice = DevicesAPI.AddDevice;
-  export import AdoptStatus = DevicesAPI.AdoptStatus;
-  export import ConfirmAdopt = DevicesAPI.ConfirmAdopt;
-  export import ConfirmShare = DevicesAPI.ConfirmShare;
-  export import CreateAdoptCode = DevicesAPI.CreateAdoptCode;
-  export import CreateShareCode = DevicesAPI.CreateShareCode;
-  export import RemoveAdoptCode = DevicesAPI.RemoveAdoptCode;
-  export import SetName = DevicesAPI.SetName;
-  export import SetProvide = DevicesAPI.SetProvide;
-  export import ShareStatus = DevicesAPI.ShareStatus;
-  export import DeviceAddParams = DevicesAPI.DeviceAddParams;
-  export import DeviceConfirmShareParams = DevicesAPI.DeviceConfirmShareParams;
-  export import DeviceCreateAdoptCodeParams = DevicesAPI.DeviceCreateAdoptCodeParams;
-  export import DeviceCreateShareCodeParams = DevicesAPI.DeviceCreateShareCodeParams;
-  export import DeviceShareStatusParams = DevicesAPI.DeviceShareStatusParams;
+export declare namespace Devices {
+  export {
+    type AddDevice as AddDevice,
+    type AdoptStatus as AdoptStatus,
+    type ConfirmAdopt as ConfirmAdopt,
+    type ConfirmShare as ConfirmShare,
+    type CreateAdoptCode as CreateAdoptCode,
+    type CreateShareCode as CreateShareCode,
+    type RemoveAdoptCode as RemoveAdoptCode,
+    type SetName as SetName,
+    type SetProvide as SetProvide,
+    type ShareStatus as ShareStatus,
+    type DeviceAddParams as DeviceAddParams,
+    type DeviceConfirmShareParams as DeviceConfirmShareParams,
+    type DeviceCreateAdoptCodeParams as DeviceCreateAdoptCodeParams,
+    type DeviceCreateShareCodeParams as DeviceCreateShareCodeParams,
+    type DeviceShareStatusParams as DeviceShareStatusParams,
+  };
 }

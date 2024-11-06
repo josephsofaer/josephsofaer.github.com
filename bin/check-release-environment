@@ -1,21 +1,6 @@
 #!/usr/bin/env bash
 
-warnings=()
 errors=()
-
-if [ -z "${NPM_TOKEN}" ]; then
-  warnings+=("The JOSEPHSOFAER_NPM_TOKEN secret has not been set. Please set it in either this repository's secrets or your organization secrets")
-fi
-
-lenWarnings=${#warnings[@]}
-
-if [[ lenWarnings -gt 0 ]]; then
-  echo -e "Found the following warnings in the release environment:\n"
-
-  for warning in "${warnings[@]}"; do
-    echo -e "- $warning\n"
-  done
-fi
 
 lenErrors=${#errors[@]}
 
@@ -30,3 +15,4 @@ if [[ lenErrors -gt 0 ]]; then
 fi
 
 echo "The environment is ready to push releases!"
+
