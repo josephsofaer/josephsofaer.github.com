@@ -3,14 +3,14 @@
 import Josephsofaer from 'josephsofaer';
 import { Response } from 'node-fetch';
 
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource auth', () => {
   test('codeCreate', async () => {
-    const responsePromise = josephsofaer.auth.codeCreate({});
+    const responsePromise = client.auth.codeCreate({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,7 +21,7 @@ describe('resource auth', () => {
   });
 
   test('codeLogin', async () => {
-    const responsePromise = josephsofaer.auth.codeLogin({});
+    const responsePromise = client.auth.codeLogin({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -32,7 +32,7 @@ describe('resource auth', () => {
   });
 
   test('networkCheck', async () => {
-    const responsePromise = josephsofaer.auth.networkCheck({});
+    const responsePromise = client.auth.networkCheck({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -43,7 +43,7 @@ describe('resource auth', () => {
   });
 
   test('networkCreate', async () => {
-    const responsePromise = josephsofaer.auth.networkCreate({});
+    const responsePromise = client.auth.networkCreate({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

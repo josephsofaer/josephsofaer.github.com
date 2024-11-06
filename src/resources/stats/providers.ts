@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as ProvidersAPI from './providers';
+import * as Core from '../../core';
 
 export class Providers extends APIResource {
   /**
@@ -73,6 +72,6 @@ export namespace StatsProviders {
   }
 }
 
-export namespace Providers {
-  export import StatsProviders = ProvidersAPI.StatsProviders;
+export declare namespace Providers {
+  export { type StatsProviders as StatsProviders };
 }

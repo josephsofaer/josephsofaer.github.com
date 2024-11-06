@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as ProviderLast90API from './provider-last-90';
+import * as Core from '../../core';
 
 export class ProviderLast90 extends APIResource {
   /**
@@ -79,7 +78,9 @@ export interface ProviderLast90CreateParams {
   client_id?: string;
 }
 
-export namespace ProviderLast90 {
-  export import StatsProviderLast90 = ProviderLast90API.StatsProviderLast90;
-  export import ProviderLast90CreateParams = ProviderLast90API.ProviderLast90CreateParams;
+export declare namespace ProviderLast90 {
+  export {
+    type StatsProviderLast90 as StatsProviderLast90,
+    type ProviderLast90CreateParams as ProviderLast90CreateParams,
+  };
 }

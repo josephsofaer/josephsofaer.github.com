@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as LoginAPI from './login';
+import * as Core from '../../core';
 
 export class Login extends APIResource {
   /**
@@ -56,7 +55,6 @@ export interface LoginCreateParams {
   user_auth?: string;
 }
 
-export namespace Login {
-  export import AuthLogin = LoginAPI.AuthLogin;
-  export import LoginCreateParams = LoginAPI.LoginCreateParams;
+export declare namespace Login {
+  export { type AuthLogin as AuthLogin, type LoginCreateParams as LoginCreateParams };
 }

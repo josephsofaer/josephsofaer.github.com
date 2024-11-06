@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as AssociationsAPI from './associations';
+import * as Core from '../../core';
 
 export class Associations extends APIResource {
   /**
@@ -83,6 +82,6 @@ export namespace DeviceAssociations {
   }
 }
 
-export namespace Associations {
-  export import DeviceAssociations = AssociationsAPI.DeviceAssociations;
+export declare namespace Associations {
+  export { type DeviceAssociations as DeviceAssociations };
 }

@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as DeviceAPI from './device';
+import * as Core from '../../core';
 import * as DevicesAPI from '../devices';
 import * as AssociationsAPI from './associations';
+import { Associations, DeviceAssociations } from './associations';
 
 export class Device extends APIResource {
   associations: AssociationsAPI.Associations = new AssociationsAPI.Associations(this._client);
@@ -158,16 +158,20 @@ export interface DeviceSetProvideParams {
   provide_mode?: -1 | 0 | 1 | 2 | 3 | 4;
 }
 
-export namespace Device {
-  export import RemoveAssociation = DeviceAPI.RemoveAssociation;
-  export import SetAssociationName = DeviceAPI.SetAssociationName;
-  export import DeviceAdoptStatusParams = DeviceAPI.DeviceAdoptStatusParams;
-  export import DeviceConfirmAdoptParams = DeviceAPI.DeviceConfirmAdoptParams;
-  export import DeviceRemoveAdoptCodeParams = DeviceAPI.DeviceRemoveAdoptCodeParams;
-  export import DeviceRemoveAssociationParams = DeviceAPI.DeviceRemoveAssociationParams;
-  export import DeviceSetAssociationNameParams = DeviceAPI.DeviceSetAssociationNameParams;
-  export import DeviceSetNameParams = DeviceAPI.DeviceSetNameParams;
-  export import DeviceSetProvideParams = DeviceAPI.DeviceSetProvideParams;
-  export import Associations = AssociationsAPI.Associations;
-  export import DeviceAssociations = AssociationsAPI.DeviceAssociations;
+Device.Associations = Associations;
+
+export declare namespace Device {
+  export {
+    type RemoveAssociation as RemoveAssociation,
+    type SetAssociationName as SetAssociationName,
+    type DeviceAdoptStatusParams as DeviceAdoptStatusParams,
+    type DeviceConfirmAdoptParams as DeviceConfirmAdoptParams,
+    type DeviceRemoveAdoptCodeParams as DeviceRemoveAdoptCodeParams,
+    type DeviceRemoveAssociationParams as DeviceRemoveAssociationParams,
+    type DeviceSetAssociationNameParams as DeviceSetAssociationNameParams,
+    type DeviceSetNameParams as DeviceSetNameParams,
+    type DeviceSetProvideParams as DeviceSetProvideParams,
+  };
+
+  export { Associations as Associations, type DeviceAssociations as DeviceAssociations };
 }

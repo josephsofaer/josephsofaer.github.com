@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as PasswordResetAPI from './password-reset';
+import * as Core from '../../core';
 
 export class PasswordReset extends APIResource {
   /**
@@ -27,7 +26,9 @@ export interface PasswordResetCreateParams {
   user_auth?: string;
 }
 
-export namespace PasswordReset {
-  export import AuthPasswordReset = PasswordResetAPI.AuthPasswordReset;
-  export import PasswordResetCreateParams = PasswordResetAPI.PasswordResetCreateParams;
+export declare namespace PasswordReset {
+  export {
+    type AuthPasswordReset as AuthPasswordReset,
+    type PasswordResetCreateParams as PasswordResetCreateParams,
+  };
 }

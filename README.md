@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Josephsofaer REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found [on bringyour.com](https://bringyour.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [bringyour.com](https://bringyour.com). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
@@ -25,12 +25,12 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Josephsofaer from 'josephsofaer';
 
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   bearerToken: process.env['JOSEPHSOFAER_BEARER_TOKEN'], // This is the default and can be omitted
 });
 
 async function main() {
-  const authLogin = await josephsofaer.auth.login.create();
+  const authLogin = await client.auth.login.create();
 
   console.log(authLogin.auth_allowed);
 }
@@ -46,12 +46,12 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Josephsofaer from 'josephsofaer';
 
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   bearerToken: process.env['JOSEPHSOFAER_BEARER_TOKEN'], // This is the default and can be omitted
 });
 
 async function main() {
-  const authLogin: Josephsofaer.Auth.AuthLogin = await josephsofaer.auth.login.create();
+  const authLogin: Josephsofaer.Auth.AuthLogin = await client.auth.login.create();
 }
 
 main();
@@ -68,7 +68,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const authLogin = await josephsofaer.auth.login.create().catch(async (err) => {
+  const authLogin = await client.auth.login.create().catch(async (err) => {
     if (err instanceof Josephsofaer.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -106,12 +106,12 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   maxRetries: 0, // default is 2
 });
 
 // Or, configure per-request:
-await josephsofaer.auth.login.create({
+await client.auth.login.create({
   maxRetries: 5,
 });
 ```
@@ -123,12 +123,12 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
 // Override per-request:
-await josephsofaer.auth.login.create({
+await client.auth.login.create({
   timeout: 5 * 1000,
 });
 ```
@@ -147,13 +147,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const josephsofaer = new Josephsofaer();
+const client = new Josephsofaer();
 
-const response = await josephsofaer.auth.login.create().asResponse();
+const response = await client.auth.login.create().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: authLogin, response: raw } = await josephsofaer.auth.login.create().withResponse();
+const { data: authLogin, response: raw } = await client.auth.login.create().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(authLogin.auth_allowed);
 ```
@@ -254,12 +254,12 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
 // Override per-request:
-await josephsofaer.auth.login.create({
+await client.auth.login.create({
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```
@@ -282,14 +282,10 @@ TypeScript >= 4.5 is supported.
 
 The following runtimes are supported:
 
-- Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import Josephsofaer from "npm:josephsofaer"`.
-- Bun 1.0 or later.
-- Cloudflare Workers.
-- Vercel Edge Runtime.
-- Jest 28 or greater with the `"node"` environment (`"jsdom"` is not supported at this time).
-- Nitro v2.6 or greater.
-
 Note that React Native is not supported at this time.
 
 If you are interested in other runtime environments, please open or upvote an issue on GitHub.
+
+## Contributing
+
+See [the contributing documentation](./CONTRIBUTING.md).

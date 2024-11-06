@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as VerifySendAPI from './verify-send';
+import * as Core from '../../core';
 
 export class VerifySend extends APIResource {
   /**
@@ -27,7 +26,6 @@ export interface VerifySendCreateParams {
   user_auth?: string;
 }
 
-export namespace VerifySend {
-  export import AuthVerifySend = VerifySendAPI.AuthVerifySend;
-  export import VerifySendCreateParams = VerifySendAPI.VerifySendCreateParams;
+export declare namespace VerifySend {
+  export { type AuthVerifySend as AuthVerifySend, type VerifySendCreateParams as VerifySendCreateParams };
 }
