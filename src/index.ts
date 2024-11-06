@@ -1,10 +1,91 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { type Agent } from './_shims/index';
 import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  AddDevice,
+  AdoptStatus,
+  ConfirmAdopt,
+  ConfirmShare,
+  CreateAdoptCode,
+  CreateShareCode,
+  DeviceAddParams,
+  DeviceConfirmShareParams,
+  DeviceCreateAdoptCodeParams,
+  DeviceCreateShareCodeParams,
+  DeviceShareStatusParams,
+  Devices,
+  RemoveAdoptCode,
+  SetName,
+  SetProvide,
+  ShareStatus,
+} from './resources/devices';
+import { Feedback, FeedbackSendFeedbackParams, SendFeedback } from './resources/feedback';
+import {
+  AuthClient,
+  Clients,
+  CreateProviderSpec,
+  FindLocations,
+  FindProviderLocations,
+  FindProviders,
+  FindProviders2,
+  Network,
+  NetworkAuthClientParams,
+  NetworkCreateProviderSpecParams,
+  NetworkFindLocationsParams,
+  NetworkFindProviderLocationsParams,
+  NetworkFindProviders2Params,
+  NetworkFindProvidersParams,
+  NetworkRemoveClientParams,
+  ProviderLocations,
+  RemoveClient,
+} from './resources/network';
+import { PreferenceSetPreferencesParams, Preferences, SetPreferences } from './resources/preferences';
+import {
+  CheckBalanceCode,
+  CreatePaymentID,
+  RedeemBalanceCode,
+  Subscription,
+  SubscriptionCheckBalanceCodeParams,
+  SubscriptionCreatePaymentIDParams,
+  SubscriptionRedeemBalanceCodeParams,
+} from './resources/subscription';
+import {
+  CircleInit,
+  CircleTransferOut,
+  ValidateAddress,
+  Wallet,
+  WalletBalanceResponse,
+  WalletCircleTransferOutParams,
+  WalletValidateAddressParams,
+} from './resources/wallet';
+import {
+  Auth,
+  AuthCodeCreateParams,
+  AuthCodeLoginParams,
+  AuthNetworkCheckParams,
+  AuthNetworkCreateParams,
+  CodeCreate,
+  CodeLogin,
+  NetworkCheck,
+  NetworkCreate,
+} from './resources/auth/auth';
+import {
+  Device,
+  DeviceAdoptStatusParams,
+  DeviceConfirmAdoptParams,
+  DeviceRemoveAdoptCodeParams,
+  DeviceRemoveAssociationParams,
+  DeviceSetAssociationNameParams,
+  DeviceSetNameParams,
+  DeviceSetProvideParams,
+  RemoveAssociation,
+  SetAssociationName,
+} from './resources/device/device';
+import { Stats } from './resources/stats/stats';
 
 export interface ClientOptions {
   /**
@@ -69,7 +150,9 @@ export interface ClientOptions {
   defaultQuery?: Core.DefaultQuery;
 }
 
-/** API Client for interfacing with the Josephsofaer API. */
+/**
+ * API Client for interfacing with the Josephsofaer API.
+ */
 export class Josephsofaer extends Core.APIClient {
   bearerToken: string;
 
@@ -111,6 +194,7 @@ export class Josephsofaer extends Core.APIClient {
       maxRetries: options.maxRetries,
       fetch: options.fetch,
     });
+
     this._options = options;
 
     this.bearerToken = bearerToken;
@@ -142,6 +226,7 @@ export class Josephsofaer extends Core.APIClient {
   }
 
   static Josephsofaer = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static JosephsofaerError = Errors.JosephsofaerError;
   static APIError = Errors.APIError;
@@ -161,7 +246,7 @@ export class Josephsofaer extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+export {
   JosephsofaerError,
   APIError,
   APIConnectionError,
@@ -175,97 +260,123 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
+} from './error';
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Josephsofaer {
-  export import RequestOptions = Core.RequestOptions;
+Josephsofaer.Stats = Stats;
+Josephsofaer.Auth = Auth;
+Josephsofaer.Network = Network;
+Josephsofaer.Preferences = Preferences;
+Josephsofaer.Feedback = Feedback;
+Josephsofaer.Wallet = Wallet;
+Josephsofaer.Subscription = Subscription;
+Josephsofaer.Devices = Devices;
+Josephsofaer.Device = Device;
 
-  export import Stats = API.Stats;
+export declare namespace Josephsofaer {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import Auth = API.Auth;
-  export import CodeCreate = API.CodeCreate;
-  export import CodeLogin = API.CodeLogin;
-  export import NetworkCheck = API.NetworkCheck;
-  export import NetworkCreate = API.NetworkCreate;
-  export import AuthCodeCreateParams = API.AuthCodeCreateParams;
-  export import AuthCodeLoginParams = API.AuthCodeLoginParams;
-  export import AuthNetworkCheckParams = API.AuthNetworkCheckParams;
-  export import AuthNetworkCreateParams = API.AuthNetworkCreateParams;
+  export { Stats as Stats };
 
-  export import Network = API.Network;
-  export import AuthClient = API.AuthClient;
-  export import Clients = API.Clients;
-  export import CreateProviderSpec = API.CreateProviderSpec;
-  export import FindLocations = API.FindLocations;
-  export import FindProviderLocations = API.FindProviderLocations;
-  export import FindProviders = API.FindProviders;
-  export import FindProviders2 = API.FindProviders2;
-  export import ProviderLocations = API.ProviderLocations;
-  export import RemoveClient = API.RemoveClient;
-  export import NetworkAuthClientParams = API.NetworkAuthClientParams;
-  export import NetworkCreateProviderSpecParams = API.NetworkCreateProviderSpecParams;
-  export import NetworkFindLocationsParams = API.NetworkFindLocationsParams;
-  export import NetworkFindProviderLocationsParams = API.NetworkFindProviderLocationsParams;
-  export import NetworkFindProvidersParams = API.NetworkFindProvidersParams;
-  export import NetworkFindProviders2Params = API.NetworkFindProviders2Params;
-  export import NetworkRemoveClientParams = API.NetworkRemoveClientParams;
+  export {
+    Auth as Auth,
+    type CodeCreate as CodeCreate,
+    type CodeLogin as CodeLogin,
+    type NetworkCheck as NetworkCheck,
+    type NetworkCreate as NetworkCreate,
+    type AuthCodeCreateParams as AuthCodeCreateParams,
+    type AuthCodeLoginParams as AuthCodeLoginParams,
+    type AuthNetworkCheckParams as AuthNetworkCheckParams,
+    type AuthNetworkCreateParams as AuthNetworkCreateParams,
+  };
 
-  export import Preferences = API.Preferences;
-  export import SetPreferences = API.SetPreferences;
-  export import PreferenceSetPreferencesParams = API.PreferenceSetPreferencesParams;
+  export {
+    Network as Network,
+    type AuthClient as AuthClient,
+    type Clients as Clients,
+    type CreateProviderSpec as CreateProviderSpec,
+    type FindLocations as FindLocations,
+    type FindProviderLocations as FindProviderLocations,
+    type FindProviders as FindProviders,
+    type FindProviders2 as FindProviders2,
+    type ProviderLocations as ProviderLocations,
+    type RemoveClient as RemoveClient,
+    type NetworkAuthClientParams as NetworkAuthClientParams,
+    type NetworkCreateProviderSpecParams as NetworkCreateProviderSpecParams,
+    type NetworkFindLocationsParams as NetworkFindLocationsParams,
+    type NetworkFindProviderLocationsParams as NetworkFindProviderLocationsParams,
+    type NetworkFindProvidersParams as NetworkFindProvidersParams,
+    type NetworkFindProviders2Params as NetworkFindProviders2Params,
+    type NetworkRemoveClientParams as NetworkRemoveClientParams,
+  };
 
-  export import Feedback = API.Feedback;
-  export import SendFeedback = API.SendFeedback;
-  export import FeedbackSendFeedbackParams = API.FeedbackSendFeedbackParams;
+  export {
+    Preferences as Preferences,
+    type SetPreferences as SetPreferences,
+    type PreferenceSetPreferencesParams as PreferenceSetPreferencesParams,
+  };
 
-  export import Wallet = API.Wallet;
-  export import CircleInit = API.CircleInit;
-  export import CircleTransferOut = API.CircleTransferOut;
-  export import ValidateAddress = API.ValidateAddress;
-  export import WalletBalanceResponse = API.WalletBalanceResponse;
-  export import WalletCircleTransferOutParams = API.WalletCircleTransferOutParams;
-  export import WalletValidateAddressParams = API.WalletValidateAddressParams;
+  export {
+    Feedback as Feedback,
+    type SendFeedback as SendFeedback,
+    type FeedbackSendFeedbackParams as FeedbackSendFeedbackParams,
+  };
 
-  export import Subscription = API.Subscription;
-  export import CheckBalanceCode = API.CheckBalanceCode;
-  export import CreatePaymentID = API.CreatePaymentID;
-  export import RedeemBalanceCode = API.RedeemBalanceCode;
-  export import SubscriptionCheckBalanceCodeParams = API.SubscriptionCheckBalanceCodeParams;
-  export import SubscriptionCreatePaymentIDParams = API.SubscriptionCreatePaymentIDParams;
-  export import SubscriptionRedeemBalanceCodeParams = API.SubscriptionRedeemBalanceCodeParams;
+  export {
+    Wallet as Wallet,
+    type CircleInit as CircleInit,
+    type CircleTransferOut as CircleTransferOut,
+    type ValidateAddress as ValidateAddress,
+    type WalletBalanceResponse as WalletBalanceResponse,
+    type WalletCircleTransferOutParams as WalletCircleTransferOutParams,
+    type WalletValidateAddressParams as WalletValidateAddressParams,
+  };
 
-  export import Devices = API.Devices;
-  export import AddDevice = API.AddDevice;
-  export import AdoptStatus = API.AdoptStatus;
-  export import ConfirmAdopt = API.ConfirmAdopt;
-  export import ConfirmShare = API.ConfirmShare;
-  export import CreateAdoptCode = API.CreateAdoptCode;
-  export import CreateShareCode = API.CreateShareCode;
-  export import RemoveAdoptCode = API.RemoveAdoptCode;
-  export import SetName = API.SetName;
-  export import SetProvide = API.SetProvide;
-  export import ShareStatus = API.ShareStatus;
-  export import DeviceAddParams = API.DeviceAddParams;
-  export import DeviceConfirmShareParams = API.DeviceConfirmShareParams;
-  export import DeviceCreateAdoptCodeParams = API.DeviceCreateAdoptCodeParams;
-  export import DeviceCreateShareCodeParams = API.DeviceCreateShareCodeParams;
-  export import DeviceShareStatusParams = API.DeviceShareStatusParams;
+  export {
+    Subscription as Subscription,
+    type CheckBalanceCode as CheckBalanceCode,
+    type CreatePaymentID as CreatePaymentID,
+    type RedeemBalanceCode as RedeemBalanceCode,
+    type SubscriptionCheckBalanceCodeParams as SubscriptionCheckBalanceCodeParams,
+    type SubscriptionCreatePaymentIDParams as SubscriptionCreatePaymentIDParams,
+    type SubscriptionRedeemBalanceCodeParams as SubscriptionRedeemBalanceCodeParams,
+  };
 
-  export import Device = API.Device;
-  export import RemoveAssociation = API.RemoveAssociation;
-  export import SetAssociationName = API.SetAssociationName;
-  export import DeviceAdoptStatusParams = API.DeviceAdoptStatusParams;
-  export import DeviceConfirmAdoptParams = API.DeviceConfirmAdoptParams;
-  export import DeviceRemoveAdoptCodeParams = API.DeviceRemoveAdoptCodeParams;
-  export import DeviceRemoveAssociationParams = API.DeviceRemoveAssociationParams;
-  export import DeviceSetAssociationNameParams = API.DeviceSetAssociationNameParams;
-  export import DeviceSetNameParams = API.DeviceSetNameParams;
-  export import DeviceSetProvideParams = API.DeviceSetProvideParams;
+  export {
+    Devices as Devices,
+    type AddDevice as AddDevice,
+    type AdoptStatus as AdoptStatus,
+    type ConfirmAdopt as ConfirmAdopt,
+    type ConfirmShare as ConfirmShare,
+    type CreateAdoptCode as CreateAdoptCode,
+    type CreateShareCode as CreateShareCode,
+    type RemoveAdoptCode as RemoveAdoptCode,
+    type SetName as SetName,
+    type SetProvide as SetProvide,
+    type ShareStatus as ShareStatus,
+    type DeviceAddParams as DeviceAddParams,
+    type DeviceConfirmShareParams as DeviceConfirmShareParams,
+    type DeviceCreateAdoptCodeParams as DeviceCreateAdoptCodeParams,
+    type DeviceCreateShareCodeParams as DeviceCreateShareCodeParams,
+    type DeviceShareStatusParams as DeviceShareStatusParams,
+  };
 
-  export import Balance = API.Balance;
+  export {
+    Device as Device,
+    type RemoveAssociation as RemoveAssociation,
+    type SetAssociationName as SetAssociationName,
+    type DeviceAdoptStatusParams as DeviceAdoptStatusParams,
+    type DeviceConfirmAdoptParams as DeviceConfirmAdoptParams,
+    type DeviceRemoveAdoptCodeParams as DeviceRemoveAdoptCodeParams,
+    type DeviceRemoveAssociationParams as DeviceRemoveAssociationParams,
+    type DeviceSetAssociationNameParams as DeviceSetAssociationNameParams,
+    type DeviceSetNameParams as DeviceSetNameParams,
+    type DeviceSetProvideParams as DeviceSetProvideParams,
+  };
+
+  export type Balance = API.Balance;
 }
 
 export default Josephsofaer;

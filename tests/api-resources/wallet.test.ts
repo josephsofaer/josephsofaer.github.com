@@ -3,14 +3,14 @@
 import Josephsofaer from 'josephsofaer';
 import { Response } from 'node-fetch';
 
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource wallet', () => {
   test('balance', async () => {
-    const responsePromise = josephsofaer.wallet.balance();
+    const responsePromise = client.wallet.balance();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,13 +22,13 @@ describe('resource wallet', () => {
 
   test('balance: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(josephsofaer.wallet.balance({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.wallet.balance({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Josephsofaer.NotFoundError,
     );
   });
 
   test('circleInit', async () => {
-    const responsePromise = josephsofaer.wallet.circleInit();
+    const responsePromise = client.wallet.circleInit();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -40,13 +40,13 @@ describe('resource wallet', () => {
 
   test('circleInit: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(josephsofaer.wallet.circleInit({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.wallet.circleInit({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Josephsofaer.NotFoundError,
     );
   });
 
   test('circleTransferOut', async () => {
-    const responsePromise = josephsofaer.wallet.circleTransferOut({});
+    const responsePromise = client.wallet.circleTransferOut({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -57,7 +57,7 @@ describe('resource wallet', () => {
   });
 
   test('validateAddress', async () => {
-    const responsePromise = josephsofaer.wallet.validateAddress({});
+    const responsePromise = client.wallet.validateAddress({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

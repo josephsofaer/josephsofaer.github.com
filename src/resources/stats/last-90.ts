@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as Last90API from './last-90';
+import * as Core from '../../core';
 
 export class Last90 extends APIResource {
   /**
@@ -113,6 +112,6 @@ export interface StatsLast90 {
   regions_summary?: number;
 }
 
-export namespace Last90 {
-  export import StatsLast90 = Last90API.StatsLast90;
+export declare namespace Last90 {
+  export { type StatsLast90 as StatsLast90 };
 }

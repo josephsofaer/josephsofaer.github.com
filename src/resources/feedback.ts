@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../core';
 import { APIResource } from '../resource';
-import * as FeedbackAPI from './feedback';
+import * as Core from '../core';
 
 export class Feedback extends APIResource {
   /**
@@ -61,7 +60,6 @@ export namespace FeedbackSendFeedbackParams {
   }
 }
 
-export namespace Feedback {
-  export import SendFeedback = FeedbackAPI.SendFeedback;
-  export import FeedbackSendFeedbackParams = FeedbackAPI.FeedbackSendFeedbackParams;
+export declare namespace Feedback {
+  export { type SendFeedback as SendFeedback, type FeedbackSendFeedbackParams as FeedbackSendFeedbackParams };
 }

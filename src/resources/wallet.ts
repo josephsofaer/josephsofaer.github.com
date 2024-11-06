@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../core';
 import { APIResource } from '../resource';
-import * as WalletAPI from './wallet';
+import * as Core from '../core';
 
 export class Wallet extends APIResource {
   /**
@@ -128,11 +127,13 @@ export interface WalletValidateAddressParams {
   address?: string;
 }
 
-export namespace Wallet {
-  export import CircleInit = WalletAPI.CircleInit;
-  export import CircleTransferOut = WalletAPI.CircleTransferOut;
-  export import ValidateAddress = WalletAPI.ValidateAddress;
-  export import WalletBalanceResponse = WalletAPI.WalletBalanceResponse;
-  export import WalletCircleTransferOutParams = WalletAPI.WalletCircleTransferOutParams;
-  export import WalletValidateAddressParams = WalletAPI.WalletValidateAddressParams;
+export declare namespace Wallet {
+  export {
+    type CircleInit as CircleInit,
+    type CircleTransferOut as CircleTransferOut,
+    type ValidateAddress as ValidateAddress,
+    type WalletBalanceResponse as WalletBalanceResponse,
+    type WalletCircleTransferOutParams as WalletCircleTransferOutParams,
+    type WalletValidateAddressParams as WalletValidateAddressParams,
+  };
 }

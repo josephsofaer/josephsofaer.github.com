@@ -3,14 +3,14 @@
 import Josephsofaer from 'josephsofaer';
 import { Response } from 'node-fetch';
 
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource network', () => {
   test('authClient', async () => {
-    const responsePromise = josephsofaer.network.authClient({});
+    const responsePromise = client.network.authClient({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,7 +21,7 @@ describe('resource network', () => {
   });
 
   test('clientsList', async () => {
-    const responsePromise = josephsofaer.network.clientsList();
+    const responsePromise = client.network.clientsList();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -33,13 +33,13 @@ describe('resource network', () => {
 
   test('clientsList: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(josephsofaer.network.clientsList({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.network.clientsList({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Josephsofaer.NotFoundError,
     );
   });
 
   test('createProviderSpec', async () => {
-    const responsePromise = josephsofaer.network.createProviderSpec({});
+    const responsePromise = client.network.createProviderSpec({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -50,7 +50,7 @@ describe('resource network', () => {
   });
 
   test('findLocations', async () => {
-    const responsePromise = josephsofaer.network.findLocations({});
+    const responsePromise = client.network.findLocations({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -61,7 +61,7 @@ describe('resource network', () => {
   });
 
   test('findProviderLocations', async () => {
-    const responsePromise = josephsofaer.network.findProviderLocations({});
+    const responsePromise = client.network.findProviderLocations({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -72,7 +72,7 @@ describe('resource network', () => {
   });
 
   test('findProviders', async () => {
-    const responsePromise = josephsofaer.network.findProviders({});
+    const responsePromise = client.network.findProviders({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -83,7 +83,7 @@ describe('resource network', () => {
   });
 
   test('findProviders2', async () => {
-    const responsePromise = josephsofaer.network.findProviders2({});
+    const responsePromise = client.network.findProviders2({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -94,7 +94,7 @@ describe('resource network', () => {
   });
 
   test('providerLocationsList', async () => {
-    const responsePromise = josephsofaer.network.providerLocationsList();
+    const responsePromise = client.network.providerLocationsList();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -106,13 +106,13 @@ describe('resource network', () => {
 
   test('providerLocationsList: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      josephsofaer.network.providerLocationsList({ path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Josephsofaer.NotFoundError);
+    await expect(client.network.providerLocationsList({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      Josephsofaer.NotFoundError,
+    );
   });
 
   test('removeClient', async () => {
-    const responsePromise = josephsofaer.network.removeClient({});
+    const responsePromise = client.network.removeClient({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

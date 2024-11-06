@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as VerifyAPI from './verify';
+import * as Core from '../../core';
 
 export class Verify extends APIResource {
   /**
@@ -28,7 +27,6 @@ export interface VerifyCreateParams {
   verify_code?: string;
 }
 
-export namespace Verify {
-  export import AuthVerify = VerifyAPI.AuthVerify;
-  export import VerifyCreateParams = VerifyAPI.VerifyCreateParams;
+export declare namespace Verify {
+  export { type AuthVerify as AuthVerify, type VerifyCreateParams as VerifyCreateParams };
 }

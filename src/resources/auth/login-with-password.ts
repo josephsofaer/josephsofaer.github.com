@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as LoginWithPasswordAPI from './login-with-password';
+import * as Core from '../../core';
 
 export class LoginWithPassword extends APIResource {
   /**
@@ -52,7 +51,9 @@ export interface LoginWithPasswordCreateParams {
   user_auth?: string;
 }
 
-export namespace LoginWithPassword {
-  export import AuthLoginWithPassword = LoginWithPasswordAPI.AuthLoginWithPassword;
-  export import LoginWithPasswordCreateParams = LoginWithPasswordAPI.LoginWithPasswordCreateParams;
+export declare namespace LoginWithPassword {
+  export {
+    type AuthLoginWithPassword as AuthLoginWithPassword,
+    type LoginWithPasswordCreateParams as LoginWithPasswordCreateParams,
+  };
 }

@@ -1,14 +1,23 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as AuthAPI from './auth';
+import * as Core from '../../core';
 import * as LoginAPI from './login';
+import { AuthLogin, Login, LoginCreateParams } from './login';
 import * as LoginWithPasswordAPI from './login-with-password';
+import {
+  AuthLoginWithPassword,
+  LoginWithPassword,
+  LoginWithPasswordCreateParams,
+} from './login-with-password';
 import * as PasswordResetAPI from './password-reset';
+import { AuthPasswordReset, PasswordReset, PasswordResetCreateParams } from './password-reset';
 import * as PasswordSetAPI from './password-set';
+import { AuthPasswordSet, PasswordSet, PasswordSetCreateParams } from './password-set';
 import * as VerifyAPI from './verify';
+import { AuthVerify, Verify, VerifyCreateParams } from './verify';
 import * as VerifySendAPI from './verify-send';
+import { AuthVerifySend, VerifySend, VerifySendCreateParams } from './verify-send';
 
 export class Auth extends APIResource {
   login: LoginAPI.Login = new LoginAPI.Login(this._client);
@@ -161,31 +170,50 @@ export interface AuthNetworkCreateParams {
   user_name?: string;
 }
 
-export namespace Auth {
-  export import CodeCreate = AuthAPI.CodeCreate;
-  export import CodeLogin = AuthAPI.CodeLogin;
-  export import NetworkCheck = AuthAPI.NetworkCheck;
-  export import NetworkCreate = AuthAPI.NetworkCreate;
-  export import AuthCodeCreateParams = AuthAPI.AuthCodeCreateParams;
-  export import AuthCodeLoginParams = AuthAPI.AuthCodeLoginParams;
-  export import AuthNetworkCheckParams = AuthAPI.AuthNetworkCheckParams;
-  export import AuthNetworkCreateParams = AuthAPI.AuthNetworkCreateParams;
-  export import Login = LoginAPI.Login;
-  export import AuthLogin = LoginAPI.AuthLogin;
-  export import LoginCreateParams = LoginAPI.LoginCreateParams;
-  export import LoginWithPassword = LoginWithPasswordAPI.LoginWithPassword;
-  export import AuthLoginWithPassword = LoginWithPasswordAPI.AuthLoginWithPassword;
-  export import LoginWithPasswordCreateParams = LoginWithPasswordAPI.LoginWithPasswordCreateParams;
-  export import Verify = VerifyAPI.Verify;
-  export import AuthVerify = VerifyAPI.AuthVerify;
-  export import VerifyCreateParams = VerifyAPI.VerifyCreateParams;
-  export import VerifySend = VerifySendAPI.VerifySend;
-  export import AuthVerifySend = VerifySendAPI.AuthVerifySend;
-  export import VerifySendCreateParams = VerifySendAPI.VerifySendCreateParams;
-  export import PasswordReset = PasswordResetAPI.PasswordReset;
-  export import AuthPasswordReset = PasswordResetAPI.AuthPasswordReset;
-  export import PasswordResetCreateParams = PasswordResetAPI.PasswordResetCreateParams;
-  export import PasswordSet = PasswordSetAPI.PasswordSet;
-  export import AuthPasswordSet = PasswordSetAPI.AuthPasswordSet;
-  export import PasswordSetCreateParams = PasswordSetAPI.PasswordSetCreateParams;
+Auth.Login = Login;
+Auth.LoginWithPassword = LoginWithPassword;
+Auth.Verify = Verify;
+Auth.VerifySend = VerifySend;
+Auth.PasswordReset = PasswordReset;
+Auth.PasswordSet = PasswordSet;
+
+export declare namespace Auth {
+  export {
+    type CodeCreate as CodeCreate,
+    type CodeLogin as CodeLogin,
+    type NetworkCheck as NetworkCheck,
+    type NetworkCreate as NetworkCreate,
+    type AuthCodeCreateParams as AuthCodeCreateParams,
+    type AuthCodeLoginParams as AuthCodeLoginParams,
+    type AuthNetworkCheckParams as AuthNetworkCheckParams,
+    type AuthNetworkCreateParams as AuthNetworkCreateParams,
+  };
+
+  export { Login as Login, type AuthLogin as AuthLogin, type LoginCreateParams as LoginCreateParams };
+
+  export {
+    LoginWithPassword as LoginWithPassword,
+    type AuthLoginWithPassword as AuthLoginWithPassword,
+    type LoginWithPasswordCreateParams as LoginWithPasswordCreateParams,
+  };
+
+  export { Verify as Verify, type AuthVerify as AuthVerify, type VerifyCreateParams as VerifyCreateParams };
+
+  export {
+    VerifySend as VerifySend,
+    type AuthVerifySend as AuthVerifySend,
+    type VerifySendCreateParams as VerifySendCreateParams,
+  };
+
+  export {
+    PasswordReset as PasswordReset,
+    type AuthPasswordReset as AuthPasswordReset,
+    type PasswordResetCreateParams as PasswordResetCreateParams,
+  };
+
+  export {
+    PasswordSet as PasswordSet,
+    type AuthPasswordSet as AuthPasswordSet,
+    type PasswordSetCreateParams as PasswordSetCreateParams,
+  };
 }
