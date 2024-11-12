@@ -246,25 +246,6 @@ export class Josephsofaer extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  JosephsofaerError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Josephsofaer.Stats = Stats;
 Josephsofaer.Auth = Auth;
 Josephsofaer.Network = Network;
@@ -274,7 +255,6 @@ Josephsofaer.Wallet = Wallet;
 Josephsofaer.Subscription = Subscription;
 Josephsofaer.Devices = Devices;
 Josephsofaer.Device = Device;
-
 export declare namespace Josephsofaer {
   export type RequestOptions = Core.RequestOptions;
 
@@ -378,5 +358,22 @@ export declare namespace Josephsofaer {
 
   export type Balance = API.Balance;
 }
+
+export { toFile, fileFromPath } from 'josephsofaer/uploads';
+export {
+  JosephsofaerError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from 'josephsofaer/error';
 
 export default Josephsofaer;
