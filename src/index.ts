@@ -359,7 +359,7 @@ export declare namespace Josephsofaer {
   export type Balance = API.Balance;
 }
 
-export { toFile, fileFromPath } from 'josephsofaer/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   JosephsofaerError,
   APIError,
@@ -374,6 +374,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'josephsofaer/error';
+} from './error';
 
 export default Josephsofaer;
