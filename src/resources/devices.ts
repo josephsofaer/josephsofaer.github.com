@@ -49,7 +49,11 @@ export class Devices extends APIResource {
    * adopt the device.
    */
   qrPng(code: string, options?: Core.RequestOptions): Core.APIPromise<Response> {
-    return this._client.get(`/device/adopt-code/${code}/qr.png`, { ...options, __binaryResponse: true });
+    return this._client.get(`/device/adopt-code/${code}/qr.png`, {
+      ...options,
+      headers: { Accept: 'image/png', ...options?.headers },
+      __binaryResponse: true,
+    });
   }
 
   /**
