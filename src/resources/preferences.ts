@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../core';
 import { APIResource } from '../resource';
-import * as PreferencesAPI from './preferences';
+import * as Core from '../core';
 
 export class Preferences extends APIResource {
   /**
@@ -22,7 +21,9 @@ export interface PreferenceSetPreferencesParams {
   product_updates?: boolean;
 }
 
-export namespace Preferences {
-  export import SetPreferences = PreferencesAPI.SetPreferences;
-  export import PreferenceSetPreferencesParams = PreferencesAPI.PreferenceSetPreferencesParams;
+export declare namespace Preferences {
+  export {
+    type SetPreferences as SetPreferences,
+    type PreferenceSetPreferencesParams as PreferenceSetPreferencesParams,
+  };
 }

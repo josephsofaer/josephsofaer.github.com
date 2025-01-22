@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../core';
 import { APIResource } from '../resource';
-import * as NetworkAPI from './network';
+import * as Core from '../core';
 
 export class Network extends APIResource {
   /**
@@ -623,21 +622,23 @@ export interface NetworkRemoveClientParams {
   client_id?: string;
 }
 
-export namespace Network {
-  export import AuthClient = NetworkAPI.AuthClient;
-  export import Clients = NetworkAPI.Clients;
-  export import CreateProviderSpec = NetworkAPI.CreateProviderSpec;
-  export import FindLocations = NetworkAPI.FindLocations;
-  export import FindProviderLocations = NetworkAPI.FindProviderLocations;
-  export import FindProviders = NetworkAPI.FindProviders;
-  export import FindProviders2 = NetworkAPI.FindProviders2;
-  export import ProviderLocations = NetworkAPI.ProviderLocations;
-  export import RemoveClient = NetworkAPI.RemoveClient;
-  export import NetworkAuthClientParams = NetworkAPI.NetworkAuthClientParams;
-  export import NetworkCreateProviderSpecParams = NetworkAPI.NetworkCreateProviderSpecParams;
-  export import NetworkFindLocationsParams = NetworkAPI.NetworkFindLocationsParams;
-  export import NetworkFindProviderLocationsParams = NetworkAPI.NetworkFindProviderLocationsParams;
-  export import NetworkFindProvidersParams = NetworkAPI.NetworkFindProvidersParams;
-  export import NetworkFindProviders2Params = NetworkAPI.NetworkFindProviders2Params;
-  export import NetworkRemoveClientParams = NetworkAPI.NetworkRemoveClientParams;
+export declare namespace Network {
+  export {
+    type AuthClient as AuthClient,
+    type Clients as Clients,
+    type CreateProviderSpec as CreateProviderSpec,
+    type FindLocations as FindLocations,
+    type FindProviderLocations as FindProviderLocations,
+    type FindProviders as FindProviders,
+    type FindProviders2 as FindProviders2,
+    type ProviderLocations as ProviderLocations,
+    type RemoveClient as RemoveClient,
+    type NetworkAuthClientParams as NetworkAuthClientParams,
+    type NetworkCreateProviderSpecParams as NetworkCreateProviderSpecParams,
+    type NetworkFindLocationsParams as NetworkFindLocationsParams,
+    type NetworkFindProviderLocationsParams as NetworkFindProviderLocationsParams,
+    type NetworkFindProvidersParams as NetworkFindProvidersParams,
+    type NetworkFindProviders2Params as NetworkFindProviders2Params,
+    type NetworkRemoveClientParams as NetworkRemoveClientParams,
+  };
 }

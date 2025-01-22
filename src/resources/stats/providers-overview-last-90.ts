@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
-import * as ProvidersOverviewLast90API from './providers-overview-last-90';
+import * as Core from '../../core';
 
 export class ProvidersOverviewLast90 extends APIResource {
   /**
@@ -54,6 +53,6 @@ export interface StatsProvidersOverviewLast90 {
   uptime?: Record<string, number>;
 }
 
-export namespace ProvidersOverviewLast90 {
-  export import StatsProvidersOverviewLast90 = ProvidersOverviewLast90API.StatsProvidersOverviewLast90;
+export declare namespace ProvidersOverviewLast90 {
+  export { type StatsProvidersOverviewLast90 as StatsProvidersOverviewLast90 };
 }

@@ -3,14 +3,14 @@
 import Josephsofaer from 'josephsofaer';
 import { Response } from 'node-fetch';
 
-const josephsofaer = new Josephsofaer({
+const client = new Josephsofaer({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource device', () => {
   test('adoptStatus', async () => {
-    const responsePromise = josephsofaer.device.adoptStatus({});
+    const responsePromise = client.device.adoptStatus({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,7 +21,7 @@ describe('resource device', () => {
   });
 
   test('confirmAdopt', async () => {
-    const responsePromise = josephsofaer.device.confirmAdopt({});
+    const responsePromise = client.device.confirmAdopt({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -32,7 +32,7 @@ describe('resource device', () => {
   });
 
   test('removeAdoptCode', async () => {
-    const responsePromise = josephsofaer.device.removeAdoptCode({});
+    const responsePromise = client.device.removeAdoptCode({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -43,7 +43,7 @@ describe('resource device', () => {
   });
 
   test('removeAssociation', async () => {
-    const responsePromise = josephsofaer.device.removeAssociation({});
+    const responsePromise = client.device.removeAssociation({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -54,7 +54,7 @@ describe('resource device', () => {
   });
 
   test('setAssociationName', async () => {
-    const responsePromise = josephsofaer.device.setAssociationName({});
+    const responsePromise = client.device.setAssociationName({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -65,7 +65,7 @@ describe('resource device', () => {
   });
 
   test('setName', async () => {
-    const responsePromise = josephsofaer.device.setName({});
+    const responsePromise = client.device.setName({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -76,7 +76,7 @@ describe('resource device', () => {
   });
 
   test('setProvide', async () => {
-    const responsePromise = josephsofaer.device.setProvide({});
+    const responsePromise = client.device.setProvide({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
